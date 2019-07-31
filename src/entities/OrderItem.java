@@ -42,6 +42,6 @@ public class OrderItem {
 	}
 	
 	public String toString() {
-		return "Quantity: " + quantity + ", Subtotal: " + price;
+		return product + " Quantity: " + quantity + ", Subtotal: " + price;
 	}
 }

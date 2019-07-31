@@ -10,11 +10,10 @@ import entities.enums.OrderStatus;
 
 public class Order {
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:sss");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	
 	private Date moment;
 	private OrderStatus status;
-	
 	private List<OrderItem> itens = new ArrayList<>();
 	private Client client = new Client();
 
@@ -73,15 +72,16 @@ public class Order {
 	public String toString() {
 		
 		StringBuilder sc = new StringBuilder();
+		sc.append("ORDER SUMMARY: \n");
 		sc.append("Order moment: " + sdf.format(moment) + "\n");
 		sc.append("Order status: " + status.toString() + "\n");
 		sc.append(client + "\n");
 		sc.append("Order items: \n");
 		
 		for(OrderItem item : itens) {
-			sc.append(item.toString() + "\n");
+			sc.append(item + "\n");
 		}
-		sc.append("Total price: $" + this.total());
+		sc.append("Total price: $" + total());
 		
 		return sc.toString();
 	}
